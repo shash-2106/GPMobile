@@ -17,6 +17,7 @@
  var coin_img, key_img, book_img;
  var coins, books, keys;
  var treasure, treasure_img;
+ var edges;
 
 function preload(){
   exp_img = loadImage("explorer.png");
@@ -37,7 +38,7 @@ function preload(){
 }
 
 function setup() {
-  createCanvas(1600,1600);
+  createCanvas(windowWidth,windowHeight);
 
   database = firebase.database();
 

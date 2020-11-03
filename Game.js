@@ -53,6 +53,22 @@ class Game{
                  var x = 100;
                  var y = 200;
                  var index = 0;
+
+                
+               /* edges = createEdgeSprites();
+                 player1.bounceOff(edges[0]);
+                 player1.bounceOff(edges[1]);
+                 player1.bounceOff(edges[2]);
+                 player1.bounceOff(edges[3]);
+                 player2.bounceOff(edges[0]);
+                 player2.bounceOff(edges[1]);
+                 player2.bounceOff(edges[2]);
+                 player2.bounceOff(edges[3]);
+                 player3.bounceOff(edges[0]);
+                 player3.bounceOff(edges[1]);
+                 player3.bounceOff(edges[2]);
+                 player3.bounceOff(edges[3]);*/
+                 
                  drawSprites();
                  for(var plr in allPlayers){
                     
@@ -84,7 +100,16 @@ class Game{
                  
                  }
                // console.log("E");
-                
+               if(touches.length>0) { 
+                   if (touches[0].x>player.x) { 
+                      player.distance += 2;
+                      player.update();
+                     } 
+               if (touches[0].x<wall.x) { 
+                  player.distance -= 2; 
+                  player.update();
+                }
+               }
                  
 
                 if (keyIsDown(RIGHT_ARROW) && player.index !== null) {
@@ -134,7 +159,7 @@ class Game{
                  }
 
                  if(player.score >= 10){
-                     game.update(3);
+                     gameState = 3;
                  }
                  
                   
@@ -157,6 +182,7 @@ class Game{
        fruits.destroy();
         form.hide();
         player.getPlayersAtEnd();
+        
 
         console.log(player.rank1);
         Player.getPlayerInfo();
@@ -165,6 +191,12 @@ class Game{
          var y = 200;
          var index = 0;
          drawSprites();
+         textSize(20);
+                     fill("white");
+                     text("Bravo determined explorers for coming this far! But this stage is going to be demanding…",120,40);
+                     text("Seek for an asset which’ll help you to open the treasure, an asset which is outstanding!",120,80);
+                     text("An asset undermined for its value, staying far from greed, ",140,120);
+                     text("But which gives invaluable knowledge, the real treasure indeed",130,160);
          for(var plr in allPlayers){
             
             
@@ -196,6 +228,16 @@ class Game{
          }
        // console.log("E");
         
+       if(touches.length>0) { 
+        if (touches[0].x>player.x) { 
+           player.distance += 2;
+           player.update();
+          } 
+    if (touches[0].x<wall.x) { 
+       player.distance -= 2; 
+       player.update();
+     }
+    }
          
 
         if (keyIsDown(RIGHT_ARROW) && player.index !== null) {
