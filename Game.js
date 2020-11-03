@@ -332,8 +332,9 @@ class Game{
                      if(player.score > 50){
                        
                          player.rank1 = player.rank1 + 1;
-                         //Player.updatePlayersAtEnd(player.rank);
-                         end();
+                         Player.updatePlayersAtEnd(player.rank);
+                         console.log(player.rank1);
+                         gameState = 2;
                      }
          }
 
