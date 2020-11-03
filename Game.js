@@ -100,6 +100,7 @@ class Game{
                  
                  }
                // console.log("E");
+        if(touches != null || touches != undefined){
                if(touches.length>0) { 
                    if (touches[0].x>player.x) { 
                       player.distance += 2;
@@ -110,6 +111,7 @@ class Game{
                   player.update();
                 }
                }
+        }
                  
 
                 if (keyIsDown(RIGHT_ARROW) && player.index !== null) {
@@ -228,16 +230,18 @@ class Game{
          }
        // console.log("E");
         
-       if(touches.length>0) { 
-        if (touches[0].x>player.x) { 
-           player.distance += 2;
-           player.update();
-          } 
-    if (touches[0].x<wall.x) { 
-       player.distance -= 2; 
-       player.update();
-     }
-    }
+        if(touches != null || touches != undefined){
+               if(touches.length>0) { 
+                   if (touches[0].x>player.x) { 
+                      player.distance += 2;
+                      player.update();
+                     } 
+               if (touches[0].x<player.x) { 
+                  player.distance -= 2; 
+                  player.update();
+                }
+               }
+        }
          
 
         if (keyIsDown(RIGHT_ARROW) && player.index !== null) {
